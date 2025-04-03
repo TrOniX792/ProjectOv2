@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cine en Casa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+<body>
+
+<header>
+    <a href="#" onclick="goToHome()" style="text-decoration: none; color: white;">
+        <h1>Cine Plagio</h1>
+    </a>
+    <div class="auth-buttons">
+        <button id="login-button" onclick="toggleLogin()">Iniciar sesión</button>
+        <button id="signup-button" onclick="toggleSignup()">Crear cuenta</button>
+        <button id="logout-button" onclick="logout()" style="display: none;">Cerrar sesión</button>
+    </div>
+</header>
+
+<!-- Main Content (Películas) -->
+<div id="movies" class="container">
+    <div class="section-title">
+        <h2>Películas en Cartelera</h2>
+    </div>
+
+    <div class="movie-card-container">
+        <!-- Movie 1 -->
+        <div class="movie-card" id="movie1" onclick="selectMovie('Shrek', 'Un ogro llamado Shrek emprende una misión para rescatar a la princesa Fiona y así recuperar la paz en su pantano. Acompañado por el parlanchín Burro, descubre que Fiona esconde un secreto que cambiará su destino.', '243.png','https://youtu.be/CwXOrWvPBPk?si=l0n16ciY2PXGQekj')">
+            <img src="243.png" alt="Película 1">
+            <h3>Shrek</h3>
+            <p>Un ogro rescata a una princesa y descubre un secreto que cambia su destino.</p>
+        </div>
+
+        <!-- Movie 2 -->
+        <div class="movie-card" id="movie2" onclick="selectMovie('Las Locuras Del Emperador', 'El arrogante emperador Kuzco es transformado en llama por su ambiciosa consejera Yzma. Perdido y sin poder, debe confiar en el bondadoso campesino Pacha para recuperar su trono y aprender una valiosa lección sobre humildad y amistad.','Locuras.webp','https://youtu.be/Bkh3heh_uHE?si=6gi0L4Zb25PZLVGm')">
+            <img src="Locuras.webp" alt="Película 2">
+            <h3>Las Locuras Del Emperador</h3>
+            <p>Un emperador transformado en llama aprende sobre humildad con la ayuda de un campesino.</p>
+        </div>
+
+        <!-- Movie 3 -->
+        <div class="movie-card" id="movie3" onclick="selectMovie('Spirit', 'Spirit, un valiente caballo salvaje, lucha por su libertad mientras enfrenta la captura por parte de los humanos. A lo largo de su viaje, forma un fuerte vínculo con un joven lakota y descubre la fuerza del espíritu indomable.','MV5BMTgyOTUzNDA1N15BMl5BanBnXkFtZTYwNjgwMDM3._V1_FMjpg_UX1000_.jpg','https://youtu.be/-vGpe_8XiNk?si=867kyCOasHdsNKi8')">
+            <img src="MV5BMTgyOTUzNDA1N15BMl5BanBnXkFtZTYwNjgwMDM3._V1_FMjpg_UX1000_.jpg" alt="Película 3">
+            <h3>Spirit</h3>
+            <p>Un caballo salvaje lucha por su libertad y forja un lazo con un joven lakota.</p>
+        </div>
+
+        <!-- Movie 4 -->
+        <div class="movie-card" id="movie4" onclick="selectMovie('El Planeta Del Tesoro', 'Jim Hawkins encuentra un misterioso mapa que lo lleva en un viaje intergaláctico en busca del legendario Tesoro de un Mil Mundos. A bordo, forja una compleja relación con el cyborg John Silver, quien se debate entre la avaricia y su cariño por el joven.','El_planeta_del_tesoro_portada.webp','https://youtu.be/Fe5csRmTpnI?si=ssuTyjz1lQLCtGby')">
+            <img src="El_planeta_del_tesoro_portada.webp" alt="Película 4">
+            <h3>El Planeta Del Tesoro</h3>
+            <p>Un joven busca un tesoro espacial mientras aprende de un cyborg con doble intención.</p>
+        </div>
+
+        <!-- Movie 5 -->
+        <div class="movie-card" id="movie5" onclick="selectMovie('El Origen De Los Guardianes', 'Jack Frost descubre su destino como Guardián cuando es reclutado por Santa Claus, el Hada de los Dientes, el Conejo de Pascua y Sandman para enfrentar a Sombra, quien amenaza con sumir al mundo en la oscuridad. En el proceso, Jack encuentra su propósito y el valor de creer en sí mismo.','20282576.jpg','https://youtu.be/e4bdD8owgDU?si=C0GvVlDoo_KSLHW2')">
+            <img src="20282576.jpg" alt="Película 5">
+            <h3>El Origen De Los Guardianes</h3>
+            <p>Jack Frost se une a los Guardianes para detener a Sombra y hallar su propósito.</p>
+        </div>
+
+        <!-- Movie 6 -->
+        <div class="movie-card" id="movie6" onclick="selectMovie('Atlantis', 'El joven cartógrafo Milo Thatch se une a una expedición para encontrar la legendaria ciudad perdida de Atlantis. Al llegar, descubre una civilización avanzada y un peligro oculto que amenaza con destruirla, enfrentándose a una decisión que cambiará su destino y el de Atlantis para siempre.','Atlantis.webp', 'https://youtu.be/r39ys9K3LgA?si=qkELNleXXvpQ62Wp')">
+            <img src="Atlantis.webp" alt="Película 6">
+            <h3>Atlantis</h3>
+            <p>Un cartógrafo encuentra una ciudad perdida y debe salvarla de la destrucción.</p>
+        </div>
+
+        <!-- Movie 7 -->
+        <div class="movie-card" id="movie7" onclick="selectMovie('Big Hero 6', 'Hiro, un joven genio de la robótica, forma un equipo de héroes junto a sus amigos y el adorable robot Baymax para detener una peligrosa amenaza en San Fransokyo. En el camino, aprende sobre la amistad, el duelo y el verdadero significado de ser un héroe.','big.webp','https://youtu.be/gZgre_WKDuk?si=1-JbO00QbzkFXEMD')">
+            <img src="big.webp" alt="Película 7">
+            <h3>Big Hero 6</h3>
+            <p>Un joven genio y su robot luchan contra una amenaza en San Fransokyo.</p>
+        </div>
+
+        <!-- Movie 8 -->
+        <div class="movie-card" id="movie8" onclick="selectMovie('Tierra De Osos', 'Kenai, un joven impulsivo, es transformado en oso como castigo por los espíritus tras un acto de venganza. En su viaje para recuperar su forma humana, entabla una inesperada amistad con Koda, un osezno que lo ayuda a ver el mundo con otros ojos y a comprender el verdadero significado del amor y el sacrificio.','Tierra.webp','https://youtu.be/RUlTmkwpcLo?si=fneweEjBC02ycS4O')">
+            <img src="Tierra.webp" alt="Película 8">
+            <h3>Tierra De Osos</h3>
+            <p>Un joven transformado en oso aprende sobre amor y sacrificio con un osezno.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Login Form -->
+<div id="login" class="login-form" style="display: none;">
+    <h2>Iniciar Sesión</h2>
+    <input type="text" id="username" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="login()">Iniciar Sesión</button>
+    <p>No tienes cuenta? <a href="#" onclick="toggleSignup()">Crear una cuenta</a></p>
+</div>
+
+<!-- Signup Form -->
+<div id="signup" class="signup-form" style="display: none;">
+    <h2>Crear Cuenta</h2>
+    <input type="email" id="new-email" placeholder="Correo electrónico" required>
+    <input type="text" id="new-username" placeholder="Usuario" required>
+    <input type="password" id="new-password" placeholder="Contraseña" required>
+    <input type="password" id="confirm-password" placeholder="Confirmar Contraseña" required>
+    <button onclick="signup()">Crear Cuenta</button>
+    <p>Ya tienes cuenta? <a href="#" onclick="toggleLogin()">Iniciar sesión</a></p>
+</div>
+
+<!-- Select Showtimes -->
+<div id="select-time" class="container" style="display: none;">
+    <h2>Seleccionar Horario para <span id="movie-name"></span></h2>
+    <img class="movie-card" alt="">
+    <p id="movie-description"></p>
+    <button id="trailer-button" class="botoncitos" onclick="openTrailer()">Ver Trailer</button>
+    <button class="botoncitos" onclick="selectSeats()">11:00 AM</button>
+    <button class="botoncitos" onclick="selectSeats()">02:00 PM</button>
+    <button class="botoncitos" onclick="selectSeats()">05:00 PM</button>
+    <button class="botoncitos" onclick="selectSeats()">08:00 PM</button>
+</div>
+
+<!-- Seat Selection -->
+<div id="seat-selection" class="container seat-selection" style="display: none;">
+    <h2>Seleccionar Asientos</h2>
+    <h3 style="text-align: center;">Pantalla</h3>
+    <img src="pantalla.webp" alt="pantalla" style="margin-left: auto; margin-right: auto; display: block;">
+    <h3 style="text-align: center;">‎</h3>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 20px; width: 991px; margin-left: auto; margin-right: auto;">
+        <script>
+            for (let i = 1; i <= 50; i++) {
+                document.write('<button id="seat-' + i + '" class="seat" onclick="selectSeat(' + i + ')" style="width: 50px; height: 50px; font-size: 12px;">' + i + '</button>');
+            }
+        </script>
+    </div>
+    <h3 style="text-align: center;">‎</h3>
+    <button id="accept-button" onclick="acceptSeats()" style="margin-left: auto; margin-right: auto; display: none; ">Aceptar</button>
+</div>
+
+<!-- Payment -->
+<div id="payment" class="container" style="display: none;">
+    <h2 style="text-align: center;">Realizar Pago</h2>
+    <h3 style="text-align: center;">‎</h3>
+    <img src="imagen_2025-04-02_232624250-removebg-preview.png" alt="pantalla" style="margin-left: auto; margin-right: auto; display: block; width: 250px; height: 150px;">
+    <button style="margin-left: auto; margin-right: auto; display: block;" onclick="payOnline()">Pagar en Línea</button>
+    <h3 style="text-align: center;">‎</h3>
+    <img src="Captura de pantalla 2025-04-02 233005.jpg" alt="pantalla" style="margin-left: auto; margin-right: auto; display: block; width: 150px; height: 150px;">
+    <button style="margin-left: auto; margin-right: auto; display: block;" onclick="payVoucher()">Sacar Vale para Pagar en Caja</button>
+</div>
+
+<footer>
+    <p>&copy; 2025 Cine en Casa - Todos los derechos reservados</p>
+</footer>
+
+<script>
+    let selectedMovie = '';
+    let selectedSeats = [];
+    let loggedInUser = ''; // Variable para almacenar el usuario logueado
+
+    // Toggle login form visibility
+    function toggleLogin() {
+        const loginForm = document.getElementById("login");
+        if (loginForm.style.display === "none" || loginForm.style.display === "") {
+            loginForm.style.display = "block";
+        } else {
+            loginForm.style.display = "none";
+        }
+        document.getElementById("signup").style.display = 'none';
+    }
+
+    // Toggle signup form visibility
+    function toggleSignup() {
+        const signupForm = document.getElementById("signup");
+        if (signupForm.style.display === "none" || signupForm.style.display === "") {
+            signupForm.style.display = "block";
+        } else {
+            signupForm.style.display = "none";
+        }
+        document.getElementById("login").style.display = 'none';
+    }
+   
+        // Login function
+        function login() {
+        loggedInUser = document.getElementById("username").value;
+        alert("Bienvenido, " + loggedInUser);
+        document.getElementById("login").style.display = 'none';
+        document.getElementById("logout-button").style.display = 'inline-block'; // Show logout button
+        document.getElementById("login-button").style.display = 'none'; // Hide login button
+        document.getElementById("signup-button").style.display = 'none'; // Hide signup button
+    }
+
+    // Logout function
+    function logout() {
+        loggedInUser = '';
+        alert("Has cerrado sesión");
+        document.getElementById("logout-button").style.display = 'none'; // Hide logout button
+        document.getElementById("login-button").style.display = 'inline-block'; // Show login button
+        document.getElementById("signup-button").style.display = 'inline-block'; // Show signup button
+    }
+
+    // Cambiar a la pantalla de horarios
+    function selectMovie(movieName, description) {
+        selectedMovie = movieName;
+        document.getElementById("movie-name").innerText = movieName;
+        document.getElementById("movie-description").innerText = description;
+        document.getElementById("movies").style.display = 'none';
+        document.getElementById("select-time").style.display = 'block';
+    }
+    function selectMovie(movieName, description, movieImage) {
+    selectedMovie = movieName;
+    document.getElementById("movie-name").innerText = movieName;
+    document.getElementById("movie-description").innerText = description;
+
+    // Actualizar la imagen de la película seleccionada
+    const movieImageElement = document.querySelector("#select-time img");
+    movieImageElement.src = movieImage;
+
+    // Ocultar la lista de películas y mostrar la pantalla de selección de horarios
+    document.getElementById("movies").style.display = 'none';
+    document.getElementById("select-time").style.display = 'block';
+}
+
+    // Función para ver trailer
+    function openTrailer() {
+        alert("Reproduciendo trailer...");
+    }
+
+    // Cambiar a la pantalla de selección de asientos
+    function selectSeats() {
+        document.getElementById("select-time").style.display = 'none';
+        document.getElementById("seat-selection").style.display = 'block';
+    }
+
+    // Seleccionar o deseleccionar un asiento
+    function selectSeat(seatId) {
+        const seatButton = document.getElementById("seat-" + seatId);
+        if (selectedSeats.includes(seatId)) {
+            selectedSeats = selectedSeats.filter(seat => seat !== seatId);
+            seatButton.classList.remove('selected');
+        } else {
+            selectedSeats.push(seatId);
+            seatButton.classList.add('selected');
+        }
+
+        // Mostrar el botón de aceptar si se seleccionaron asientos
+        if (selectedSeats.length > 0) {
+            document.getElementById("accept-button").style.display = 'flex';
+        } else {
+            document.getElementById("accept-button").style.display = 'none';
+        }
+    }
+
+    // Cambiar a la pantalla de pago
+    function acceptSeats() {
+        document.getElementById("seat-selection").style.display = 'none';
+        document.getElementById("payment").style.display = 'block';
+    }
+
+    // Opciones de pago en línea
+    function payOnline() {
+        alert("Procesando pago en línea...");
+        goToHome(); // Redirige a la página principal
+    }
+
+    // Opciones de pago con vale
+    function payVoucher() {
+        alert("Generando vale para pagar en caja...");
+        goToHome(); // Redirige a la página principal
+    }
+
+    // Redirigir a la página de inicio
+    function goToHome() {
+        document.getElementById("movies").style.display = 'block';
+        document.getElementById("select-time").style.display = 'none';
+        document.getElementById("seat-selection").style.display = 'none';
+        document.getElementById("payment").style.display = 'none';
+    }
+
+    // Navegar a la pantalla de login
+   
+    function goToLogin() {
+        document.getElementById("login").style.display = 'block';
+        document.getElementById("signup").style.display = 'none';
+    }
+
+    // Navegar a la pantalla de registro
+    function goToSignup() {
+        document.getElementById("signup").style.display = 'block';
+        document.getElementById("login").style.display = 'none';
+    }
+
+    // Iniciar sesión
+    function login() {
+        loggedInUser = document.getElementById("username").value;
+        alert("Iniciando sesión como " + loggedInUser + "...");
+        document.getElementById("login").style.display = 'none';
+        document.getElementById("movies").style.display = 'block';
+        updateAuthButtons();
+    }
+
+    // Crear cuenta
+    function signup() {
+        const email = document.getElementById("new-email").value;
+        const username = document.getElementById("new-username").value;
+        const password = document.getElementById("new-password").value;
+        const confirmPassword = document.getElementById("confirm-password").value;
+
+        if (password !== confirmPassword) {
+            alert("Las contraseñas no coinciden. Por favor, verifique.");
+            return;
+        }
+
+        if (email === "" || username === "" || password === "" || confirmPassword === "") {
+            alert("Por favor, complete todos los campos.");
+            return;
+        }
+
+        alert("Cuenta creada exitosamente.");
+        document.getElementById("signup").style.display = 'none';
+        document.getElementById("movies").style.display = 'block';
+    }
+
+    // Actualizar botones de autenticación después de iniciar sesión
+    function updateAuthButtons() {
+        if (loggedInUser) {
+            document.querySelector(".auth-buttons").innerHTML = `
+                <span>Bienvenido, ${loggedInUser}</span>
+                <button onclick="logout()">Cerrar sesión</button>
+            `;
+        }
+    }
+
+    // Cerrar sesión
+    function logout() {
+        loggedInUser = '';
+        updateAuthButtons();
+        goToHome();
+    }
+
+        // Actualizar botones de autenticación después de iniciar sesión
+        function updateAuthButtons() {
+        if (loggedInUser) {
+            document.querySelector(".auth-buttons").innerHTML = `
+                <span>Bienvenido, ${loggedInUser}</span>
+                <button onclick="logout()">Cerrar sesión</button>
+            `;
+        } else {
+            document.querySelector(".auth-buttons").innerHTML = `
+                <button id="login-button" onclick="toggleLogin()">Iniciar sesión</button>
+                <button id="signup-button" onclick="toggleSignup()">Crear cuenta</button>
+            `;
+        }
+    }
+
+        // Restablecer la aplicación después del pago
+        function resetApp() {
+        document.getElementById("payment").style.display = 'none';
+        document.getElementById("movies").style.display = 'block';
+        selectedSeats = [];
+    }
+    // Objeto con los tráilers de cada película
+    function selectMovie(movieName, description, movieImage, trailerUrl) {
+    selectedMovie = movieName;
+    document.getElementById("movie-name").innerText = movieName;
+    document.getElementById("movie-description").innerText = description;
+
+    // Actualizar la imagen de la película seleccionada
+    const movieImageElement = document.querySelector("#select-time img");
+    movieImageElement.src = movieImage;
+
+    // Guardar la URL del tráiler
+    document.getElementById("trailer-button").setAttribute("data-trailer", trailerUrl);
+
+    // Ocultar la lista de películas y mostrar la pantalla de selección de horarios
+    document.getElementById("movies").style.display = 'none';
+    document.getElementById("select-time").style.display = 'block';
+}
+
+// Función para abrir el tráiler en YouTube
+function openTrailer() {
+    const trailerUrl = document.getElementById("trailer-button").getAttribute("data-trailer");
+    if (trailerUrl) {
+        window.open(trailerUrl, "_blank");
+    } else {
+        alert("No hay tráiler disponible para esta película.");
+    }
+}
+</script>
+   
+</script>
+
+
+</body>
+</html>
